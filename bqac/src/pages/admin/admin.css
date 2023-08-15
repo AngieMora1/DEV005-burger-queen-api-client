@@ -1,0 +1,59 @@
+.bg-admin{
+  background-color: #F4EBE6;
+  height: 100vh;
+}
+
+.header{
+  background-color: #6A3F36;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 75px;
+  padding: 5px 10%;
+  color: white;
+  box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------ Opciones ------------- */
+
+.header .nav-links .nav-opt{
+  font-size: 18px;
+  color: #eceff1;
+  font-weight: 500;
+  text-decoration: none;    
+  margin-left: 35px;
+  position: relative;
+}
+
+.header .nav-links .nav-opt::before {
+  content: ''; /* Crea un elemento pseudo ::before para el subrayado */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px; /* Ajusta la altura del subrayado según tu preferencia */
+  background: white; /* Color del subrayado */
+  transition: .3s;
+}
+
+.header .nav-links .nav-opt:hover::before{
+  width: 100%;
+}
+
+.btn-close{
+  font-size: 25px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+
+.crud-items{
+  display: flex;
+  justify-content: center;
+  border-color: black;
+  margin-inline: 40px;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+}
