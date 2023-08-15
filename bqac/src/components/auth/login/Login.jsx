@@ -3,7 +3,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 // import InputGroup from "react-bootstrap/InputGroup";
 import styles from "./login.module.css";
-// import axios from "axios";
+import axios from "axios";
+import apiConfig from "../../../api/http";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,21 +20,36 @@ export const Login = () => {
   const handleClick = (e) => {
     setSubmitEvent(e.preventDefault());
   }
-  console.log("email", email);
-  console.log("contraseña",password);
+  const authentication = axios.post('http://localhost:8080/login',{
+      email: email,
+      password: password
+  })
+  .then((response) => {
+    console.log(response, 'se ingreso correctamente')
+  })
+  .catch((error) => {
+    console.log(error);
+  })
 
-  // const authentication =
-  //     axios.post('http://localhost:8080/login',{
-  //     email: "grace.hopper@systers.xyz",
-  //     password: "123456"
-  // })
-  // .then((response) => {
-  //   console.log(response);
-  // })
-  // .catch((error) => {
-  //   console.log(error);
-  // })
-  // console.log(authentication)
+  // const authentication = async () => {
+  //   try {
+  //     const response = await axios.post(`${apiConfig.baseUrl}login`, {
+  //       email: email,
+  //       password: password,
+  //     });
+  //   if(response.ok){
+  //     console.log('se ingreso correctamente')
+  //   }else{
+  //     console.log('credenciales incorrectas')}
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  useEffect(() => {
+    authentication;
+
+  },[]);
 
   return (
     <Form 
