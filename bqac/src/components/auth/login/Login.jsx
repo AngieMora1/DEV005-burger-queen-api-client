@@ -7,7 +7,7 @@ import axios from "axios";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [authError, setAuthError] = useState('');
+  const [authError, setAuthError] = useState("");
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
@@ -17,24 +17,22 @@ export const Login = () => {
   };
   const handleClick = async (e) => {
     e.preventDefault();
-    
+
     try {
-      const response = await axios.post('http://localhost:8080/login', {
+      const response = await axios.post("http://localhost:8080/login", {
         email: email,
         password: password,
       });
-      
-      console.log(response.data, 'se ingreso correctamente');
-      // Aquí deberías manejar el token de alguna manera (estado, cookie, local storage, etc.)
-      
+      const token = response.data.accessToken; 
+      localStorage.setItem("jwtToken", token);
+      console.log("Inicio de sesión exitoso");
     } catch (error) {
       console.error(error);
-      setAuthError('Error al iniciar sesión.');
+      setAuthError("Error al iniciar sesión.");
     }
   };
 
   return (
-
     <Form className={styles.body} onSubmit={handleClick}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
@@ -65,4 +63,3 @@ export const Login = () => {
 };
 
 export default Login;
-
