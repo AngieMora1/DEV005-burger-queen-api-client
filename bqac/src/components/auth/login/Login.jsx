@@ -15,6 +15,7 @@ export const Login = () => {
   const handlePassword = (event) => {
     setPassword(event.target.value);
   };
+
   const handleClick = async (e) => {
     e.preventDefault();
 
@@ -27,7 +28,6 @@ export const Login = () => {
       localStorage.setItem("jwtToken", token);
       console.log("Inicio de sesión exitoso");
     } catch (error) {
-      console.error(error);
       setAuthError("Error al iniciar sesión.");
     }
   };
