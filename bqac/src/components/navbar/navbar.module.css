@@ -1,0 +1,45 @@
+.header{
+  background-color: #6A3F36;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 75px;
+  padding: 5px 10%;
+  color: white;
+  box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------ Opciones ------------- */
+
+.header .navLinks .navOpt{
+  font-size: 18px;
+  color: #eceff1;
+  font-weight: 500;
+  text-decoration: none;    
+  margin-left: 35px;
+  position: relative;
+}
+
+.header .navLinks .navOpt::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px; 
+  background: white; 
+  transition: .3s;
+}
+
+.header .navLinks .navOpt:hover::before{
+  width: 100%;
+}
+
+.navClose{
+  font-size: 25px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
