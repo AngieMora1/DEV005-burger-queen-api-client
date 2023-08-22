@@ -41,6 +41,7 @@ export const Login = () => {
           placeholder="Enter email"
           value={email}
           onChange={handleEmail}
+          required
         />
         <Form.Text className="text-muted"></Form.Text>
       </Form.Group>
@@ -52,6 +53,7 @@ export const Login = () => {
           placeholder="Password"
           value={password}
           onChange={handlePassword}
+          required
         />
       </Form.Group>
       {authError && <p className="text-danger">{authError}</p>}
