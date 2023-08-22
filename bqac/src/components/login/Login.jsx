@@ -3,11 +3,13 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import styles from "./login.module.css";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom'
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
+  const navigate = useNavigate()
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
@@ -26,6 +28,16 @@ export const Login = () => {
       });
       const token = response.data.accessToken; 
       localStorage.setItem("jwtToken", token);
+      
+
+      if(response.data.user.role === 'admin'){
+        navigate("/admin")
+      }else if(response.data.user.role === 'waiter'){
+        navigate("/waiter")
+      }else if(response.data.user.role === 'chef'){
+        navigate("/chef")
+      }
+
       console.log("Inicio de sesión exitoso");
     } catch (error) {
       setAuthError("Error al iniciar sesión.");
