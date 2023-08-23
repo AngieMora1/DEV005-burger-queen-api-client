@@ -1,16 +1,14 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
-import styles from "./login.module.css";
 import { useState } from "react";
+import {Button, Form,Container  } from "react-bootstrap";
+import styles from "./login.module.css";
 import axios from "axios";
-import apiConfig from "../../api/http";
-// import { Redirect } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authError, setAuthError] = useState("");
+  const navigate = useNavigate()
 
   const handleEmail = (event) => {
     setEmail(event.target.value);
@@ -18,75 +16,32 @@ const Login = () => {
   const handlePassword = (event) => {
     setPassword(event.target.value);
   };
+
   const handleClick = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${apiConfig.baseUrl}login`, {
+      const response = await axios.post("http://localhost:8080/login", {
         email: email,
         password: password,
       });
-      if(response.data.user.role==='admin'){
-        console.log('entrada admin')
-        // return <Redirect to="/admin" />;
-      } else {
-        console.log('no entro')
-      }
-      // const token = response.data.accessToken;
-      // console.log("Inicio de sesión exitoso");
-      // console.log(response.data)
-      // localStorage.setItem("jwtToken", token);
-      // if(response.data.user.role==='admin'){
-        
-      //   console.log(response.data)
-      //   return redirect("/admin")
-      // }
-
+      const token = response.data.accessToken; 
+      localStorage.setItem("jwtToken", token);
       
 
-      //       console.log(response, "se ingreso correctamente")
-      //         const dataAccessToken = response.data.accessToken;
-      //         // sessionStorage.setItem("email",email)
-      //         // sessionStorage.setItem("accessToken", dataAccessToken)
-      //         // sessionStorage.setItem("id", dataId)
-      //         // sessionStorage.setItem("role", dataRole)
-      //         localStorage.setItem("accessToken", dataAccessToken)
+      if(response.data.user.role === 'admin'){
+        navigate("/admin")
+      }else if(response.data.user.role === 'waiter'){
+        navigate("/waiter")
+      }else if(response.data.user.role === 'chef'){
+        navigate("/chef")
+      }
+
+      console.log("Inicio de sesión exitoso");
     } catch (error) {
-      console.log(error)
-      setAuthError("Contraseña incorrecta.");
+      setAuthError("Error al iniciar sesión.");
     }
   };
-
-  //   // const handleClick = (e) => {
-  //   //   setSubmitEvent(e.preventDefault());
-  //   // }
-  //   // const authentication = axios.post('http://localhost:8080/login',{
-  //   //     email: email,
-  //   //     password: password
-  //   // })
-  //   // .then((response) => {
-  //   //   console.log(response, 'se ingreso correctamente')
-  //   // })
-  //   // .catch((error) => {
-  //   //   console.log(error);
-  //   // })
-
-  //   // const authentication = async () => {
-  //   //   try {
-  //   //     const response = await axios.post(`${apiConfig.baseUrl}login`, {
-  //   //       email: email,
-  //   //       password: password,
-  //   //     });
-  //   //     console.log(response)
-
-  //   //   // if(response){
-  //   //   //   console.log('se ingreso correctamente')
-  //   //   // }else{
-  //   //   //   console.log('credenciales incorrectas')}
-  //   //   } catch (error) {
-  //   //     console.log(error);
-  //   //   }
-  //   // };
 
   return (
     <Container className={styles.formMain}>

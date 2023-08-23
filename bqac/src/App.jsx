@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import  Login  from './components/login/Login'
 import { Error } from "./components/error/Error";
+import Login from "./components/login/Login";
 import { Admin } from "./pages/admin/Admin";
 
 function App() {
