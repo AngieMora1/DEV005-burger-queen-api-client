@@ -9,7 +9,7 @@ export const TableComp = () => {
 
   useEffect(() => {
     const obtenerApiKey = () => {
-      return localStorage.getItem('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImdyYWNlLmhvcHBlckBzeXN0ZXJzLnh5eiIsImlhdCI6MTY5MjUwNTE4MSwiZXhwIjoxNjkyNTA4NzgxLCJzdWIiOiIyIn0.qyGGJKDueRjM_OjG3EWr6UvmwzL6pZj7NNHpEI5MLTM');
+      return localStorage.getItem('jwtToken');
     };
 
     const obtenerProductos = async () => {
@@ -37,9 +37,10 @@ export const TableComp = () => {
       <thead>
         <tr>
           <th>Id</th>
-          <th>Correo</th>
-          <th>Contraseña</th>
-          <th>Rol</th>
+          <th>Producto</th>
+          <th>precio</th>
+          <th>Imagen</th>
+          <th>Tipo</th>
           <th>Opciones</th>
         </tr>
       </thead>
@@ -47,8 +48,10 @@ export const TableComp = () => {
         {productos.map((producto) => (
           <tr key={producto.id}>
             <td>{producto.id}</td>
-            <td>{producto.nombre}</td>
-            <td>{producto.precio}</td>
+            <td>{producto.name}</td>
+            <td>{producto.price}</td>
+            <td>{producto.image}</td>
+            <td>{producto.type}</td>
             <td>
               <BsPencilSquare />
               <BsTrash />
