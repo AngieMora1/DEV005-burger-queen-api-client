@@ -11,7 +11,7 @@
 }
 
 .tableHeader th{
-  padding-inline: 20px;
+  padding: 10px 10px;
 }
 
 .tableBody{
@@ -19,5 +19,5 @@
 }
 
 .tableBody td{
-  padding-inline: 20px;
+  padding: 18px 20px;
 }
