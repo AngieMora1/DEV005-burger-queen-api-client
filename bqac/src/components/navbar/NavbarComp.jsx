@@ -51,7 +51,6 @@ export const NavbarComp = () => {
             Productos
           </Nav.Link>
         </Nav>
-
         <Button className={styles.navClose} onClick={handleLogout}>
           <RxExit />
         </Button>

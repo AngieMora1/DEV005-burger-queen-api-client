@@ -1,6 +1,5 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import {Button, Form,Container  } from "react-bootstrap";
 import styles from "./login.module.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
@@ -47,34 +46,40 @@ export const Login = () => {
   };
 
   return (
-    <Form className={styles.body} onSubmit={handleClick}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control
-          type="email"
-          placeholder="Enter email"
-          value={email}
-          onChange={handleEmail}
-          required
-        />
-        <Form.Text className="text-muted"></Form.Text>
-      </Form.Group>
+    <Container className={styles.formMain}>
+      <Form id={styles.formLogIn} onSubmit={handleClick}>
+        <Container>
+          <h1>Bienvenidos</h1>
+          <h3>Iniciar sesión</h3>
+        </Container>
+        <Form.Group className={styles.formGroup} controlId="formBasicEmail">
+          <Form.Label className={styles.formItems}>Correo</Form.Label>
+          <Form.Control
+            className={styles.formControl}
+            type="email"
+            placeholder="Ingresar correo"
+            value={email}
+            onChange={handleEmail}
+          />
+          <Form.Text className="text-muted"></Form.Text>
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={handlePassword}
-          required
-        />
-      </Form.Group>
-      {authError && <p className="text-danger">{authError}</p>}
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+        <Form.Group className={styles.formGroup} controlId="formBasicPassword">
+          <Form.Label className={styles.formItems}>Contraseña</Form.Label>
+          <Form.Control
+            className={styles.formControl}
+            type="password"
+            placeholder="Ingresar contraseña"
+            value={password}
+            onChange={handlePassword}
+          />
+        </Form.Group>
+        {authError && <p className="text-danger">{authError}</p>}
+        <Button variant="primary" type="submit" className={styles.buttonLogIn}>
+          Ingresar
+        </Button>
+      </Form>
+    </Container>
   );
 };
 

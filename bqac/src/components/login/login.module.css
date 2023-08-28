@@ -1,1 +1,141 @@
+@media screen and (min-width: 768px) and (max-width: 1040px) and (orientation: portrait){
+    .formMain{
+        background-color: red;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+    .formMain h1 {
+        margin-bottom: 15%;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .formMain h3{
+        margin-bottom: 15%;
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    #formLogIn{
+        /* background-color: aqua; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20% 0%;
+        width: 50%;
+        padding: 0px 20px;
+        }
+    .formGroup{
 
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .formItems{
+        font-weight: bold;
+        font-size: 20px;
+        padding: 0% 5%;
+        margin: 5% 0% 0% 0%;
+        text-align: start;
+    }
+    .formControl{
+        background-color: #8986866d;
+        font-size: 20px;
+        width: 100%;
+        border-radius: 6px;
+        height: 38px;
+        border: none;
+    } 
+    ::placeholder{
+        color:black;
+        font-size: 15px;
+        padding-left: 5%;
+    }
+    .buttonLogIn{
+        background-color: #6a3f36e7;
+        margin: 15%;
+        padding: 2%;
+        width: 35%;
+        border-radius: 10px;
+        color: #FFFFFF;
+        font-weight: 550;
+        font-size: 15px;
+    } 
+}
+@media screen and (min-width: 768px) and (max-width: 1280px) and (orientation: landscape){
+
+    /* #formLogIn{
+        background-color: aqua;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        margin: 5rem 0% 0% 0%;/*50% 0%;*/
+        /*width: 100%;
+    }    */
+    .formMain{
+        background-color: greenyellow;
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+        width: 45%;
+        align-items: center;
+        float: right;
+        height: 100%;
+    }
+    .formMain h1 {
+        margin-bottom: 15%;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .formMain h3{
+        margin-bottom: 15%;
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    #formLogIn{
+        /* background-color: aqua; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10% 0%;
+        width: 100%;
+        padding: 0px 20px;
+        }
+    .formGroup{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    .formItems{
+        font-weight: bold;
+        font-size: 20px;
+        padding: 0% 5%;
+        margin: 5% 0% 0% 0%;
+        text-align: start;
+    }
+    .formControl{
+        background-color: #8986866d;
+        font-size: 20px;
+        width: 100%;
+        border-radius: 6px;
+        height: 38px;
+        border: none;
+    } 
+    ::placeholder{
+        color:black;
+        font-size: 15px;
+        padding-left: 5%;
+    }
+    .buttonLogIn{
+        background-color: #6a3f36e7;
+        margin: 15%;
+        padding: 2%;
+        width: 35%;
+        border-radius: 10px;
+        color: #FFFFFF;
+        font-weight: 550;
+        font-size: 15px;
+    } 
+}  
