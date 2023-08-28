@@ -1,0 +1,23 @@
+.tableUser{
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background-color: #D9D9D9;
+}
+
+.tableHeader{
+  background-color: #9A817C;
+  
+}
+
+.tableHeader th{
+  padding-inline: 20px;
+}
+
+.tableBody{
+  text-align: center;
+}
+
+.tableBody td{
+  padding-inline: 20px;
+}

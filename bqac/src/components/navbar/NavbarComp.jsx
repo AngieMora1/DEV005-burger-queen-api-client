@@ -4,9 +4,28 @@ import { RxExit } from "react-icons/rx";
 import styles from "./navbar.module.css";
 import { TableComp } from "../table/TableComp";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ModalComp } from "../modal/ModalComp";
+import { TableUsers } from "../table/TableUsers";
 
 export const NavbarComp = () => {
+  const navigate = useNavigate();
   const [seccionActiva, setSeccionActiva] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwtToken");
+    navigate("/");
+  };
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
 
   return (
     <Navbar>
@@ -33,7 +52,7 @@ export const NavbarComp = () => {
           </Nav.Link>
         </Nav>
 
-        <Button className={styles.navClose}>
+        <Button className={styles.navClose} onClick={handleLogout}>
           <RxExit />
         </Button>
       </Container>
@@ -51,6 +70,12 @@ export const NavbarComp = () => {
         style={{ display: seccionActiva === "usuarios" ? "block" : "none" }}
       >
         <h2>Sección de Usuarios</h2>
+        <TableUsers/>
+        <Button onClick={handleShowModal}> Registro</Button>
+
+        <ModalComp show={showModal} onClose={handleCloseModal} title="Mi Modal"> 
+          <p>Contenido del modal...</p>
+        </ModalComp>
       </section>
     </Navbar>
   );

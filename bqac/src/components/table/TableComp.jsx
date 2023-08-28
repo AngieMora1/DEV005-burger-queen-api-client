@@ -1,6 +1,7 @@
 import { BsTrash, BsPencilSquare } from "react-icons/bs";
 import { Table } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import styles from "./table.module.css";
 import axios from "axios";
 
 export const TableComp = () => {
@@ -22,7 +23,6 @@ export const TableComp = () => {
         });
 
         setProductos(response.data);
-        console.log(response.data)
       } catch (error) {
         console.error('Error al obtener productos:', error);
       }
@@ -34,24 +34,24 @@ export const TableComp = () => {
 
 
   return (
-    <Table striped="columns">
-      <thead>
+    <Table striped="columns" className={styles.tableUser}>
+      <thead className={styles.tableHeader}>
         <tr>
           <th>Id</th>
-          <th>Nombre</th>
+          <th>Producto</th>
           <th>Precio</th>
           <th>Imagen</th>
           <th>Tipo</th>
           <th>Opciones</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody className={styles.tableBody}>
         {productos.map((producto) => (
           <tr key={producto.id}>
             <td>{producto.id}</td>
             <td>{producto.name}</td>
             <td>{producto.price}</td>
-            <td>{producto.image}</td>
+            <td>{producto.image.split('/').pop()}</td>
             <td>{producto.type}</td>
             <td>
               <BsPencilSquare />

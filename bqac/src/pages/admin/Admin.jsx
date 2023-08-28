@@ -8,12 +8,7 @@ export const Admin = () => {
 
   return (
     <Container >
-
       <NavbarComp />
-      {/* <TableComp
-      
-      /> */}
-
     </Container>
   );
 };
