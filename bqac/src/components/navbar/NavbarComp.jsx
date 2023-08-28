@@ -3,35 +3,39 @@ import { PiHamburgerBold } from "react-icons/pi";
 import { RxExit } from "react-icons/rx";
 import styles from "./navbar.module.css";
 import { TableComp } from "../table/TableComp";
-import { useNavigate } from 'react-router-dom'
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import { ModalComp } from "../modal/ModalComp";
+import { TableUsers } from "../table/TableUsers";
 
 export const NavbarComp = () => {
   const navigate = useNavigate();
   const [seccionActiva, setSeccionActiva] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem("jwtToken");
     navigate("/");
   };
 
-  // const handleShowModal = () => {
-  //   setShowModal(true);
-  // };
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
 
-  // const handleCloseModal = () => {
-  //   setShowModal(false);
-  // };
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+
   return (
     <Navbar>
-        <Container className={styles.header}>
-          <Navbar.Brand>
-            <PiHamburgerBold/>
-            <Navbar.Text>BQAC Team</Navbar.Text>
-          </Navbar.Brand>
+      <Container className={styles.header}>
+        <Navbar.Brand>
+          <PiHamburgerBold />
+          <Navbar.Text>BQAC Team</Navbar.Text>
+        </Navbar.Brand>
 
-          <Nav className={styles.navLinks}>
+        <Nav className={styles.navLinks}>
           <Nav.Link
             href="#usuarios"
             onClick={() => setSeccionActiva("usuarios")}
@@ -47,12 +51,12 @@ export const NavbarComp = () => {
             Productos
           </Nav.Link>
         </Nav>
+        <Button className={styles.navClose} onClick={handleLogout}>
+          <RxExit />
+        </Button>
+      </Container>
 
-          <Button className={styles.navClose} onClick={handleLogout}>
-            <RxExit />
-          </Button>
-        </Container>
-        <section
+      <section
         id="productos"
         style={{ display: seccionActiva === "productos" ? "block" : "none" }}
       >
@@ -65,9 +69,13 @@ export const NavbarComp = () => {
         style={{ display: seccionActiva === "usuarios" ? "block" : "none" }}
       >
         <h2>Sección de Usuarios</h2>
-        <Button> Nuevo usuario</Button>
-      </section>
-      </Navbar>
-  )
-}
+        <TableUsers/>
+        <Button onClick={handleShowModal}> Registro</Button>
 
+        <ModalComp show={showModal} onClose={handleCloseModal} title="Mi Modal"> 
+          <p>Contenido del modal...</p>
+        </ModalComp>
+      </section>
+    </Navbar>
+  );
+};
