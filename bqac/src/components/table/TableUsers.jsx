@@ -33,7 +33,7 @@ export const TableUsers = () => {
 
 
   return (
-    <Table striped="columns" className={styles.tableUser}>
+    <Table striped="columns" className={styles.tableUser} cellspacing="0">
       <thead className={styles.tableHeader}>
         <tr>
           <th>Id</th>
