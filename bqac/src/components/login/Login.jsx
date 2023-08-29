@@ -3,6 +3,7 @@ import {Button, Form,Container  } from "react-bootstrap";
 import styles from "./login.module.css";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
+import { PiHamburgerBold} from "react-icons/pi";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -47,6 +48,10 @@ export const Login = () => {
 
   return (
     <Container className={styles.formMain}>
+      <Container className={styles.icon}>
+        <PiHamburgerBold></PiHamburgerBold>
+      </Container>
+      <Container className={styles.containerForm}>
       <Form id={styles.formLogIn} onSubmit={handleClick}>
         <Container>
           <h1>Bienvenidos</h1>
@@ -79,6 +84,7 @@ export const Login = () => {
           Ingresar
         </Button>
       </Form>
+      </Container>      
     </Container>
   );
 };

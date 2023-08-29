@@ -73,15 +73,29 @@
         margin: 5rem 0% 0% 0%;/*50% 0%;*/
         /*width: 100%;
     }    */
+    .icon, .containerForm {
+        height: 100vh;
+        width: 50vw;
+        /* float: left; */
+    }
+    .icon{
+        background-color: aqua;
+        flex: 1;
+    }
+    .containerForm{
+        /* padding-inline: 20px; */
+        padding: 5% 3% 0px 3%;
+        /* display: grid;
+        place-items:center; */
+    }
     .formMain{
-        background-color: greenyellow;
         display: flex;
-        flex-direction: column;
-        margin-right: 20px;
-        width: 45%;
-        align-items: center;
-        float: right;
-        height: 100%;
+        /* flex-direction: column; */
+        /* margin-right: 20px; */
+        /* width: 50vw; */
+        /* align-items: center; */
+        /* float: right; */
+        height: 100vh;
     }
     .formMain h1 {
         margin-bottom: 15%;
@@ -94,31 +108,33 @@
         text-align: center;
     }
     #formLogIn{
-        /* background-color: aqua; */
+        background-color: red;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 10% 0%;
-        width: 100%;
-        padding: 0px 20px;
+        /* margin: 10% 0%; */
+        /* width: 100%; */
+        /* padding: 10px 20px; */
         }
     .formGroup{
         display: flex;
-        justify-content: center;
         flex-direction: column;
         width: 100%;
+        align-items: center;
+        /* padding: 0px 50px 0px 100px; */
     }
     .formItems{
         font-weight: bold;
         font-size: 20px;
-        padding: 0% 5%;
-        margin: 5% 0% 0% 0%;
-        text-align: start;
+        /* float: left; */
+        /* padding: 0% 5%;
+        margin: 5% 0% 0% 0%; */
+        /* text-align: start; */
     }
     .formControl{
         background-color: #8986866d;
         font-size: 20px;
-        width: 100%;
+        width: 70%;
         border-radius: 6px;
         height: 38px;
         border: none;
